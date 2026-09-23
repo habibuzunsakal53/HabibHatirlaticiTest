@@ -13,6 +13,7 @@ workflows:
             -destination 'generic/platform=iOS' \
             -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO \
+            -derivedDataPath build
     artifacts:
-      - build/Build/Products/Release-iphoneos/*
+      - build/Build/Products/Release-iphoneos/**/*
