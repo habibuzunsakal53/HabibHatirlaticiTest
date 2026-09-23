@@ -8,6 +8,11 @@ workflows:
     scripts:
       - name: Build Swift Package App
         script: |
-          swift build -c release
+          xcodebuild build \
+            -scheme "HabibHatirlaticiTest" \
+            -destination 'generic/platform=iOS' \
+            -configuration Release \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
     artifacts:
-      - .build/release/*
+      - build/Build/Products/Release-iphoneos/*
