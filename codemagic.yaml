@@ -5,12 +5,13 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       xcode: latest
-      sdk: iphonesimulator
+      vars:
+        XCODE_SCHEME: "Habib Uygulama Test"
     scripts:
       - name: Build Swift Package App
         script: |
           xcodebuild build \
-            -scheme "Habib Uygulama Test" \
+            -scheme "$XCODE_SCHEME" \
             -destination 'generic/platform=iOS' \
             -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
