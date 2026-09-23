@@ -5,16 +5,10 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       xcode: latest
-      vars:
-        XCODE_SCHEME: "Habib Uygulama Test"
     scripts:
       - name: Build Swift Package App
         script: |
-          xcodebuild build \
-            -scheme "$XCODE_SCHEME" \
-            -destination 'generic/platform=iOS' \
-            -configuration Release \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO
+          swift build -c release --triple arm64-apple-ios16.0
     artifacts:
-      - build/Build/Products/Release-iphoneos/*.app
+      - .build/arm64-apple-ios16.0/release/*.app
+      - .build/release/*.app
