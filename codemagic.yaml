@@ -8,7 +8,6 @@ workflows:
     scripts:
       - name: Build Swift Package App
         script: |
-          swift build -c release --triple arm64-apple-ios16.0
+          swift build -c release
     artifacts:
-      - .build/arm64-apple-ios16.0/release/*.app
-      - .build/release/*.app
+      - .build/release/*
